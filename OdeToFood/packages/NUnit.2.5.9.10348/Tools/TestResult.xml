@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\dev\OdeToFood\OdeToFood\OdeToFood.Tests\bin\Debug\OdeToFood.Tests.dll" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-02-25" time="23:51:35">
+  <environment nunit-version="2.5.9.10348" clr-version="2.0.50727.4952" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="C:\dev\OdeToFood\OdeToFood\packages\NUnit.2.5.9.10348\Tools" machine-name="MVC3" user="bitmask" user-domain="MVC3" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\dev\OdeToFood\OdeToFood\OdeToFood.Tests\bin\Debug\OdeToFood.Tests.dll" executed="True" result="Failure" success="False" time="1.142" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="OdeToFood" executed="True" result="Failure" success="False" time="1.112" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="1.112" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="HomeControllerIndexTests" executed="True" result="Failure" success="False" time="1.102" asserts="0">
+                <results>
+                  <test-case name="OdeToFood.Tests.HomeControllerIndexTests.Puts_Message_In_ViewBag" executed="True" result="Failure" success="False" time="1.082" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected: not null
+  But was:  null
+]]></message>
+                      <stack-trace><![CDATA[at CallSite.Target(Closure , CallSite , Type , Object )
+at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+at OdeToFood.Tests.HomeControllerIndexTests.Puts_Message_In_ViewBag() in C:\dev\OdeToFood\OdeToFood\OdeToFood.Tests\HomeControllerTests.cs:line 18
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
