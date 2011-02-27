@@ -11,8 +11,11 @@ namespace OdeToFood.Controllers
     {
         public ViewResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
+            ViewBag.Message = string.Format("{0}::{1} {2}",
+                                RouteData.Values["controller"],
+                                RouteData.Values["action"],
+                                RouteData.Values["id"]);
+            
             var model = new RestaurantReview()
             {
                 Name = "Tersiguel's",
