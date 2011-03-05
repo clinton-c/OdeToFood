@@ -126,8 +126,8 @@ page width. Or, you can specify an exact pixel width. */
 ----------------------------------------------------------*/
 ul#menu
 {
-    border-bottom: 1px #000000 solid;
-    padding: 0 0 2px;
+    border-bottom: 2px #000000 solid;
+    padding: 2px;
     position: relative;
     margin: 0;
     text-align: right;
@@ -141,7 +141,7 @@ ul#menu li
 
 ul#menu li a
 {
-    padding: 10px 20px;
+    padding: 8px 20px;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
@@ -330,4 +330,28 @@ div#title
 .tri-state
 {
     width: 6em;
+}
+
+.review 
+{    
+    padding: 2px;
+    border-bottom: 2px solid black;    
+}
+
+.review h4
+{
+    color: Maroon;
+    padding: 5px;
+    background: #cccc99
+}
+
+.review p 
+{
+    font-size: .8em;    
+}
+
+.right
+{
+    
+    float:right;
 }

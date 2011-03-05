@@ -11,18 +11,8 @@ namespace OdeToFood.Controllers
     {
         public ViewResult Index()
         {
-            ViewBag.Message = string.Format("{0}::{1} {2}",
-                                RouteData.Values["controller"],
-                                RouteData.Values["action"],
-                                RouteData.Values["id"]);
-            
-            var model = new RestaurantReview()
-            {
-                Name = "Tersiguel's",
-                Rating = 9
-            };
-
-            return View(model);
+            ViewBag.Message = "Welcome to Ode To Food";            
+            return View();
         }
 
         public ActionResult About()
