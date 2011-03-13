@@ -51,7 +51,7 @@ namespace OdeToFood
     }
 
     public class OdeToFoodDBInitializer : 
-        DropCreateDatabaseIfModelChanges<OdeToFoodDB>
+        DropCreateDatabaseAlways<OdeToFoodDB>
     {
         protected override void Seed(OdeToFoodDB context)
         {
