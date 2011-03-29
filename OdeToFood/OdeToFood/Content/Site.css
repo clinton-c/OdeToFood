@@ -335,7 +335,8 @@ div#title
 .review 
 {    
     padding: 2px;
-    border-bottom: 2px solid black;    
+    border-bottom: 2px solid black; 
+    padding-bottom: 10px;   
 }
 
 .review h4
@@ -354,4 +355,9 @@ div#title
 {
     
     float:right;
+}
+
+#progress
+{
+    display:none;
 }

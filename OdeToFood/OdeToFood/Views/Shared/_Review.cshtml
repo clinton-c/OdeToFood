@@ -5,9 +5,11 @@
     <h4>@Model.Restaurant.Name</h4>
     <span>Rating: @Model.Rating</span>
     <p>
-        @Model.Body
+        <span>
+            @Model.Body
+        </span>
         <span class="right">
             @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
-        </span>
+        </span>        
     </p>
 </div>

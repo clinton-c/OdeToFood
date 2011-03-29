@@ -1,5 +1,50 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 <h2>@ViewBag.Message</h2>
+<div id="latestReview">
+    @Ajax.ActionLink("Click here to see the latest review",
+                 "LatestReview", new AjaxOptions
+                 {
+                     UpdateTargetId = "latestReview",
+                     InsertionMode = InsertionMode.Replace,
+                     HttpMethod = "GET",
+                     LoadingElementId = "progress"
+                 })
+</div>
+<p></p>
+   
+
+<form method="get" action="@Url.Action("JsonSearch", "Home")" id="searchForm">
+    <input type="text" name="q" data-autocomplete="@Url.Action("QuickSearch", "Home")" /> 
+    <input type="submit" value="Search" />
+</form>
+
+<table>
+     <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Address
+        </th>
+    </thead>
+    <tbody id="searchResults">
+    
+    </tbody>
+</table>
+
+<script id="searchTemplate" type="text/x-jquery-tmpl">
+    <tr>
+        <td>
+            ${Name}
+        </td>
+        <td>
+            ${City}, ${Country}            
+        </td>
+    </tr>
+</script>
+
+<div id="progress">
+    <img src="@Url.Content("~/Content/images/ajax-loader.gif")" alt="loader" />
+</div>
