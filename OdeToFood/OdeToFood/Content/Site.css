@@ -89,8 +89,7 @@ page width. Or, you can specify an exact pixel width. */
 }
 
 #header
-{
-    position: relative;
+{   
     margin-bottom: 0px;        
     background:#CC9;
 }

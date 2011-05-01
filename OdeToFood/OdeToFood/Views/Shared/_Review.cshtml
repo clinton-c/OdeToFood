@@ -6,7 +6,7 @@
     <span>Rating: @Model.Rating</span>
     <p>
         <span>
-            @Model.Body
+            @Html.Raw(Model.Body)
         </span>
         <span class="right">
             @Html.ActionLink("Edit", "Edit", new { id = Model.ID })

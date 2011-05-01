@@ -12,6 +12,7 @@
 <h2>Edit</h2>
 
 @using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Review for @Model.Restaurant.Name</legend>

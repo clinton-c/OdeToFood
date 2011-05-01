@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using OdeToFood.Models;
 using OdeToFood.Queries;
+using System.Data;
+using Microsoft.Security.Application;
 
 namespace OdeToFood.Controllers
 {
@@ -62,11 +64,10 @@ namespace OdeToFood.Controllers
             {
                 return View();
             }
-        }
-        
+        }        
         //
         // GET: /Reviews/Edit/5
- 
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var review = _db.Reviews.FindById(id);
@@ -77,18 +78,20 @@ namespace OdeToFood.Controllers
         // POST: /Reviews/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            var review = _db.Reviews.FindById(id);
-
-            if (TryUpdateModel(review))
+        [Authorize]  
+        [ValidateAntiForgeryToken]  
+        public ActionResult Edit(Review review)
+        {            
+            if (ModelState.IsValid)
             {
+                review.Body = Sanitizer.GetSafeHtmlFragment(review.Body);
+                _db.Entry(review).State = EntityState.Modified;
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-            return View(review); 
-        }
+
+            return View(review);
+        }       
 
         //
         // GET: /Reviews/Delete/5

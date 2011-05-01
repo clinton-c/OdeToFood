@@ -4,7 +4,12 @@
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" type="text/css" rel="stylesheet" />
-
+    @Content.Script("jquery-1.4.4.min.js", Url)
+    @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
+    @Content.Script("jquery-ui.min.js", Url)
+    @Content.Script("jQuery.tmpl.min.js", Url)
+    @Content.Script("odetofood.js", Url)
+    @RenderSection("scripts", false)
 </head>
 
 <body>
@@ -36,12 +41,6 @@
             </div>
         </div>
     </div>
-    @Content.Script("jquery-1.4.4.min.js", Url)
-    @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
-    @Content.Script("jquery-ui.min.js", Url)
-    @Content.Script("jQuery.tmpl.min.js", Url)
-    @Content.Script("odetofood.js", Url)
-    @RenderSection("scripts", false)
 </body>
 </html>
 

@@ -11,6 +11,7 @@ using OdeToFood.Models;
 
 namespace OdeToFood.Controllers
 {
+    [RequireHttps]
     public class AccountController : Controller
     {
 

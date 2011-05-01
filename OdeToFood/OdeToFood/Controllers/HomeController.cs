@@ -9,6 +9,7 @@ using System.Threading;
 
 namespace OdeToFood.Controllers
 {
+    //[Authorize(Roles="users")]
     public class HomeController : Controller
     {
         public ActionResult JsonSearch(string q)
@@ -50,6 +51,7 @@ namespace OdeToFood.Controllers
             return PartialView("_Review", review);
         }
 
+        
         public ViewResult Index()
         {
             ViewBag.Message = "Welcome to Ode To Food";            

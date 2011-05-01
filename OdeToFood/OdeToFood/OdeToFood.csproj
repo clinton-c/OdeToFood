@@ -34,10 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EFCodeFirst.0.8\lib\EntityFramework.dll</HintPath>
+    <Reference Include="AntiXSSLibrary">
+      <HintPath>..\packages\AntiXSS.4.0.1\lib\net35\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary">
+      <HintPath>..\packages\AntiXSS.4.0.1\lib\net35\HtmlSanitizationLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -80,6 +88,10 @@
     <Compile Include="Queries\RestaurantReviewQueries.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ASPNETDB.MDF" />
+    <Content Include="App_Data\aspnetdb_log.ldf">
+      <DependentUpon>ASPNETDB.MDF</DependentUpon>
+    </Content>
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\edit.png" />
     <Content Include="Content\images\info.png" />
@@ -93,7 +105,9 @@
     <Content Include="Scripts\jQuery.tmpl.js" />
     <Content Include="Scripts\jQuery.tmpl.min.js" />
     <Content Include="Scripts\OdeToFood.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -139,9 +153,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Reviews\Index.cshtml" />
   </ItemGroup>

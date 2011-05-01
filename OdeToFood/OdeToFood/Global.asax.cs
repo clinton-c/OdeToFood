@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using OdeToFood.Infrastructure;
-using System.Data.Entity.Database;
 using OdeToFood.Models;
+using System.Data.Entity;
 
 namespace OdeToFood
 {
@@ -41,7 +41,7 @@ namespace OdeToFood
         protected void Application_Start()
         {
 
-            //DbDatabase.SetInitializer(new OdeToFoodDBInitializer());
+            //Database.SetInitializer(new OdeToFoodDBInitializer());
 
             AreaRegistration.RegisterAllAreas();
 
@@ -54,9 +54,7 @@ namespace OdeToFood
         DropCreateDatabaseAlways<OdeToFoodDB>
     {
         protected override void Seed(OdeToFoodDB context)
-        {
-            base.Seed(context);
-
+        {            
             context.Restaurants.Add(new Restaurant
             {
                 Name = "Marrakesh",
@@ -90,7 +88,30 @@ namespace OdeToFood
                 }
             });
 
-            context.SaveChanges();
+            context.Restaurants.Add(new Restaurant
+            {
+                Name = "Yellow Brick Bank Restaurant",
+                Address = new Address
+                {
+                    City="Columbia",
+                    State="MD",
+                    Country="USA"
+                },
+                Reviews = new List<Review> {
+                    new Review{
+                          Rating= 9,
+                           Body="This is restaurant is <em>great!</em>",
+                           DiningDate = new DateTime(2001,1,1)
+                    },
+                    new Review{
+                          Rating= 9,
+                           Body="This is restaurant is <em>great!</em>",
+                           DiningDate = new DateTime(2001,1,1)
+                    }
+                }
+            });
+
+            base.Seed(context);
         }
     }
 }
