@@ -1,32 +1,69 @@
-﻿@{
+﻿@model IEnumerable<OdeToFood.Models.Restaurant>
+@{
     ViewBag.Title = "Home Page";
 }
-<h2>@ViewBag.Message</h2>
+<h2>@OdeToFood.Views.Home.HomeResources.Greeting</h2>
 
-<p>
-You are logged in as @User.Identity.Name
-</p>
+@{
+    var amount = 10.0m;
+    var then = new DateTime(2002, 7, 9);    
+}
 
-
-<div id="latestReview">
-    @Ajax.ActionLink("Click here to see the latest review",
-                 "LatestReview", new AjaxOptions
-                 {
-                     UpdateTargetId = "latestReview",
-                     InsertionMode = InsertionMode.Replace,
-                     HttpMethod = "GET",
-                     LoadingElementId = "progress"
-                 })
+<div>
+    @amount.ToString("c")
 </div>
-<p></p>
-   
+<div>
+    @then.ToShortDateString()
+</div>
 
-<form method="get" action="@Url.Action("JsonSearch", "Home")" id="searchForm">
+
+
+ @using (Html.BeginForm("Index", "Home", FormMethod.Get)) {
+    <input name="q" type="text" />
+    <input type="submit" value="Search" />
+ }
+
+
+
+ <table>
+     <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Address
+        </th>
+    </thead>
+    <tbody id="searchResults">
+        @Html.Partial("_RestaurantSearchResults", Model)
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<form method="get" action="@Url.Action("JsonSearch", "Home")" id="searchForm">
     <input type="text" name="q" data-autocomplete="@Url.Action("QuickSearch", "Home")" /> 
     <input type="submit" value="Search" />
 </form>
-
-<table>
+*@
+@*<table>
      <thead>
         <th>
             Name
@@ -49,7 +86,7 @@ You are logged in as @User.Identity.Name
             ${City}, ${Country}            
         </td>
     </tr>
-</script>
+</script>*@
 
 <div id="progress">
     <img src="@Url.Content("~/Content/images/ajax-loader.gif")" alt="loader" />

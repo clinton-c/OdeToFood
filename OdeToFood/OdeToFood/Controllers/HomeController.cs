@@ -9,9 +9,33 @@ using System.Threading;
 
 namespace OdeToFood.Controllers
 {
-    //[Authorize(Roles="users")]
     public class HomeController : Controller
     {
+        [OutputCache(CacheProfile="long", VaryByParam = "q", VaryByHeader="Accept-Language")]
+        public ViewResult Index(string q)
+        {
+            var restaurants = Enumerable.Empty<Restaurant>();
+            if (!String.IsNullOrEmpty(q))
+            {
+                restaurants = _db.Restaurants
+                                 .Where(r => r.Name.Contains(q))
+                                 .Take(10);
+            }
+            ViewBag.Message = OdeToFood.Views.Home.HomeResources.Greeting;
+            return View(restaurants);
+        }
+
+        [OutputCache(CacheProfile="short", VaryByParam="none")]
+        public PartialViewResult ChildAction()
+        {
+            return PartialView();
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
         public ActionResult JsonSearch(string q)
         {
             var restaurants = _db.Restaurants
@@ -43,28 +67,7 @@ namespace OdeToFood.Controllers
                                  .Take(10);
             return PartialView("_RestaurantSearchResults", restaurants);
         }
-
-
-        public PartialViewResult LatestReview()
-        {
-            var review = _db.Reviews.FindTheLatest(1).Single();
-            return PartialView("_Review", review);
-        }
-
-        
-        public ViewResult Index()
-        {
-            ViewBag.Message = "Welcome to Ode To Food";            
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Location = "Maryland, USA";
-
-            return View();
-        }
-
+       
         OdeToFoodDB _db = new OdeToFoodDB();
     }
 }

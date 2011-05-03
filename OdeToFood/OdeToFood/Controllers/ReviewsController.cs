@@ -67,7 +67,6 @@ namespace OdeToFood.Controllers
         }        
         //
         // GET: /Reviews/Edit/5
-        [Authorize]
         public ActionResult Edit(int id)
         {
             var review = _db.Reviews.FindById(id);
@@ -78,7 +77,6 @@ namespace OdeToFood.Controllers
         // POST: /Reviews/Edit/5
 
         [HttpPost]
-        [Authorize]  
         [ValidateAntiForgeryToken]  
         public ActionResult Edit(Review review)
         {            
