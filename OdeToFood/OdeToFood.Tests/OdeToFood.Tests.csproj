@@ -41,6 +41,7 @@
       <HintPath>..\packages\NUnit.2.5.9.10348\lib\pnunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -53,8 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeControllerTests.cs" />
+    <Compile Include="Doubles\FakeDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantRating\IRatingAlgorithm.cs" />
+    <Compile Include="RestaurantRating\RateResult.cs" />
+    <Compile Include="RestaurantRating\RestaurantRater.cs" />
+    <Compile Include="RestaurantRating\ReviewCalculationTests.cs" />
+    <Compile Include="RestaurantRating\SimpleRatingAlgorithm.cs" />
+    <Compile Include="RestaurantRating\WeightedRatingAlgorithm.cs" />
+    <Compile Include="ReviewsController\ReviewsControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -67,7 +75,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)\packages\Nunit.2.5.9.10348\tools\nunit-console $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

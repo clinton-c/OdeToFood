@@ -7,12 +7,18 @@ using OdeToFood.Models;
 using OdeToFood.Queries;
 using System.Data;
 using Microsoft.Security.Application;
+using System.Data.Entity.Infrastructure;
 
 namespace OdeToFood.Controllers
 {
     public class ReviewsController : Controller
     {
-        OdeToFoodDB _db = new OdeToFoodDB();
+        IDbContext _db;
+
+        public ReviewsController(IDbContext db)
+        {
+            _db = db;
+        }
 
         //
         // GET: /Reviews/
@@ -81,10 +87,12 @@ namespace OdeToFood.Controllers
         public ActionResult Edit(Review review)
         {            
             if (ModelState.IsValid)
-            {
+            {                
                 review.Body = Sanitizer.GetSafeHtmlFragment(review.Body);
-                _db.Entry(review).State = EntityState.Modified;
+                                
+                _db.Attach(review);
                 _db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

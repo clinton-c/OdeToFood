@@ -11,26 +11,18 @@ namespace OdeToFood.Controllers
 {
     public class HomeController : Controller
     {
-        [OutputCache(CacheProfile="long", VaryByParam = "q", VaryByHeader="Accept-Language")]
-        public ViewResult Index(string q)
+        public ActionResult Index(string q = null)
         {
-            var restaurants = Enumerable.Empty<Restaurant>();
-            if (!String.IsNullOrEmpty(q))
-            {
-                restaurants = _db.Restaurants
-                                 .Where(r => r.Name.Contains(q))
+            var restaurants = _db.Restaurants
+                                 .Where(r => r.Name.Contains(q) || q == null)
                                  .Take(10);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_RestaurantList", restaurants);
             }
-            ViewBag.Message = OdeToFood.Views.Home.HomeResources.Greeting;
             return View(restaurants);
         }
-
-        [OutputCache(CacheProfile="short", VaryByParam="none")]
-        public PartialViewResult ChildAction()
-        {
-            return PartialView();
-        }
-
+        
         public ActionResult About()
         {
             return View();
@@ -58,16 +50,7 @@ namespace OdeToFood.Controllers
             return Json(restaurants, JsonRequestBehavior.AllowGet);
             
         }
-
-        public PartialViewResult Search(string q)
-        {
-            var restaurants = _db.Restaurants
-                                 .Where(r => r.Name.Contains(q) || 
-                                             String.IsNullOrEmpty(q))
-                                 .Take(10);
-            return PartialView("_RestaurantSearchResults", restaurants);
-        }
-       
+      
         OdeToFoodDB _db = new OdeToFoodDB();
     }
 }

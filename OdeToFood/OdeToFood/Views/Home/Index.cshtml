@@ -4,40 +4,17 @@
 }
 <h2>@OdeToFood.Views.Home.HomeResources.Greeting</h2>
 
-@{
-    var amount = 10.0m;
-    var then = new DateTime(2002, 7, 9);    
-}
 
-<div>
-    @amount.ToString("c")
-</div>
-<div>
-    @then.ToShortDateString()
-</div>
-
-
-
- @using (Html.BeginForm("Index", "Home", FormMethod.Get)) {
+ @using (Ajax.BeginForm("Index", "Home", 
+            new AjaxOptions { HttpMethod = "GET", 
+                              InsertionMode = InsertionMode.Replace, 
+                              UpdateTargetId = "searchResults" }))
+ {
     <input name="q" type="text" />
     <input type="submit" value="Search" />
  }
 
-
-
- <table>
-     <thead>
-        <th>
-            Name
-        </th>
-        <th>
-            Address
-        </th>
-    </thead>
-    <tbody id="searchResults">
-        @Html.Partial("_RestaurantSearchResults", Model)
-    </tbody>
-</table>
+ @Html.Partial("_RestaurantList", Model)
 
 
 

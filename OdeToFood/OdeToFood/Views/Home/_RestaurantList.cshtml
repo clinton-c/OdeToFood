@@ -1,0 +1,28 @@
+﻿@model IEnumerable<OdeToFood.Models.Restaurant>
+<table id="searchResults">
+    <thead>
+        <tr>
+            <td>
+                Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Name, "Details", "Restaurant", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @item.Address.City, @item.Address.State
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
