@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using OdeToFood.Models;
 using OdeToFood.Queries;
 using System.Threading;
+using System.Configuration;
 
 namespace OdeToFood.Controllers
 {
@@ -20,6 +21,9 @@ namespace OdeToFood.Controllers
             {
                 return PartialView("_RestaurantList", restaurants);
             }
+
+            ViewBag.SmtpServer = ConfigurationManager.AppSettings["SmtpServer"];
+
             return View(restaurants);
         }
         
