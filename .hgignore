@@ -26,4 +26,7 @@ syntax: glob
 *.sbr
 *.scc
 *.sig
+Web.Debug.config
+Web.Release.config
+*.Publish.xml
 _ReSharper*\*
