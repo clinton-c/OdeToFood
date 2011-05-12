@@ -56,12 +56,6 @@
   <ItemGroup>
     <Compile Include="Doubles\FakeDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestaurantRating\IRatingAlgorithm.cs" />
-    <Compile Include="RestaurantRating\RateResult.cs" />
-    <Compile Include="RestaurantRating\RestaurantRater.cs" />
-    <Compile Include="RestaurantRating\ReviewCalculationTests.cs" />
-    <Compile Include="RestaurantRating\SimpleRatingAlgorithm.cs" />
-    <Compile Include="RestaurantRating\WeightedRatingAlgorithm.cs" />
     <Compile Include="ReviewsController\ReviewsControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
