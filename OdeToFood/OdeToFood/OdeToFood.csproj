@@ -69,9 +69,8 @@
     <Reference Include="AntiXSSLibrary">
       <HintPath>..\packages\AntiXSS.4.0.1\lib\net35\AntiXSSLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="HtmlSanitizationLibrary">
       <HintPath>..\packages\AntiXSS.4.0.1\lib\net35\HtmlSanitizationLibrary.dll</HintPath>
@@ -148,9 +147,9 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\IDbContext.cs" />
     <Compile Include="Models\OdeToFoodDB.cs" />
+    <Compile Include="Models\OdeToFoodDBInitializer.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Review.cs" />
-    <Compile Include="Models\OdeToFoodDBInitializer.asax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\RestaurantReviewQueries.cs" />
   </ItemGroup>

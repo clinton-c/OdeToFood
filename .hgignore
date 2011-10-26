@@ -2,8 +2,8 @@ syntax: glob
 
 *.suo
 *.user
-*\bin\*
-*\obj\*
+*/bin/*
+*/obj/*
 *.ncb
 *.nlb
 *.aps
@@ -29,4 +29,4 @@ syntax: glob
 Web.Debug.config
 Web.Release.config
 *.Publish.xml
-_ReSharper*\*
+_ReSharper*/*

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Data.Entity;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace OdeToFood
@@ -27,7 +28,7 @@ namespace OdeToFood
 
         protected void Application_Start()
         {
-            //Database.SetInitializer(new OdeToFoodDBInitializer());
+            Database.SetInitializer(new OdeToFoodDBInitializer());
 
             AreaRegistration.RegisterAllAreas();
 
