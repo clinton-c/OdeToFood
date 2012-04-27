@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using OdeToFood.Models;
 using OdeToFood.Queries;
-using Microsoft.Security.Application;
 
 namespace OdeToFood.Controllers
 {
@@ -83,7 +82,7 @@ namespace OdeToFood.Controllers
         {            
             if (ModelState.IsValid)
             {                
-                review.Body = Sanitizer.GetSafeHtmlFragment(review.Body);
+                //review.Body = Sanitizer.GetSafeHtmlFragment(review.Body);
                                 
                 _db.Attach(review);
                 _db.SaveChanges();
